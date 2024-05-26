@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { Radar, Bar } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -186,76 +185,90 @@ const TeamSummary = () => {
     };
 
     return (
-        <div className='summary-container'>
-            <div className="header">
-                <h1>NHL Teams Summary</h1>
-                <label className="switch">
-                    <input type="checkbox" checked={compareMode} onChange={() => setCompareMode(!compareMode)} />
-                    <span className="slider round"></span>
-                </label>
-                <span className="toggle-label">Compare Teams</span>
-            </div>
-            {compareMode && (
-                <div className="chart-container">
-                    <div className="chart">
-                        <Bar data={barData} options={barOptions} />
-                        <h3>Bar Chart</h3>
-                    </div>
-                    <div className="chart">
-                        <Radar data={radarData} options={radarOptions} />
-                        <h3>Normalized Radar Chart</h3>
-                    </div>
-                </div>
-            )}
-            <table>
-                <thead>
-                    <tr>
-                        {compareMode && <th>COMPARE</th>}
-                        <th onClick={() => handleSort('teamFullName')}>
-                            TEAM <FontAwesomeIcon icon={getSortIcon('teamFullName')} />
-                        </th>
-                        <th onClick={() => handleSort('seasonId')}>
-                            SEASON <FontAwesomeIcon icon={getSortIcon('seasonId')} />
-                        </th>
-                        <th onClick={() => handleSort('gamesPlayed')}>
-                            GAMES PLAYED <FontAwesomeIcon icon={getSortIcon('gamesPlayed')} />
-                        </th>
-                        <th onClick={() => handleSort('wins')}>
-                            WINS <FontAwesomeIcon icon={getSortIcon('wins')} />
-                        </th>
-                        <th onClick={() => handleSort('losses')}>
-                            LOSSES <FontAwesomeIcon icon={getSortIcon('losses')} />
-                        </th>
-                        <th onClick={() => handleSort('points')}>
-                            POINTS <FontAwesomeIcon icon={getSortIcon('points')} />
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {sortedTeams.map((team, index) => (
-                        <tr key={`${team.teamId}-${team.seasonId}-${index}`}>
-                        {compareMode && (
-                            <td>
-                                <input
-                                    type="checkbox"
-                                    checked={selectedTeams.some(selectedTeam => selectedTeam.teamId === team.teamId && selectedTeam.seasonId === team.seasonId)}
-                                    onChange={() => handleCheckboxChange(team)}
-                                />
-                            </td>
-                        )}
-                        <td data-label="Team Name">
-                            <Link to={`/team/${team.teamId}/season/${team.seasonId}`}>{team.teamFullName}</Link>
-                        </td>
-                        <td data-label="Season">{formatSeasonId(team.seasonId)}</td>
-                        <td data-label="Games Played">{team.gamesPlayed}</td>
-                        <td data-label="Wins">{team.wins}</td>
-                        <td data-label="Losses">{team.losses}</td>
-                        <td data-label="Points">{team.points}</td>
-                    </tr>                    
-                    ))}
-                </tbody>
-            </table>
+      <div className="summary-container">
+        <div className="header">
+          <h1>NHL Teams Summary</h1>
+          <label className="switch">
+            <input
+              type="checkbox"
+              checked={compareMode}
+              onChange={() => setCompareMode(!compareMode)}
+            />
+            <span className="slider round"></span>
+          </label>
+          <span className="toggle-label">Compare Teams</span>
         </div>
+        {compareMode && (
+          <div className="chart-container">
+            <div className="chart">
+              <Bar data={barData} options={barOptions} />
+              <h3>Bar Chart</h3>
+            </div>
+            <div className="chart">
+              <Radar data={radarData} options={radarOptions} />
+              <h3>Normalized Radar Chart</h3>
+            </div>
+          </div>
+        )}
+        <table>
+          <thead>
+            <tr>
+              {compareMode && <th>COMPARE</th>}
+              <th onClick={() => handleSort("teamFullName")}>
+                TEAM <FontAwesomeIcon icon={getSortIcon("teamFullName")} />
+              </th>
+              <th onClick={() => handleSort("seasonId")}>
+                SEASON <FontAwesomeIcon icon={getSortIcon("seasonId")} />
+              </th>
+              <th onClick={() => handleSort("gamesPlayed")}>
+                GAMES PLAYED{" "}
+                <FontAwesomeIcon icon={getSortIcon("gamesPlayed")} />
+              </th>
+              <th onClick={() => handleSort("wins")}>
+                WINS <FontAwesomeIcon icon={getSortIcon("wins")} />
+              </th>
+              <th onClick={() => handleSort("losses")}>
+                LOSSES <FontAwesomeIcon icon={getSortIcon("losses")} />
+              </th>
+              <th onClick={() => handleSort("points")}>
+                POINTS <FontAwesomeIcon icon={getSortIcon("points")} />
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {sortedTeams.map((team, index) => (
+              <tr
+                key={`${team.teamId}-${team.seasonId}-${index}`}
+                onClick={() =>
+                  (window.location.href = `/team/${team.teamId}/season/${team.seasonId}`)
+                }
+                className="clickable-row"
+              >
+                {compareMode && (
+                  <td>
+                    <input
+                      type="checkbox"
+                      checked={selectedTeams.some(
+                        (selectedTeam) =>
+                          selectedTeam.teamId === team.teamId &&
+                          selectedTeam.seasonId === team.seasonId
+                      )}
+                      onChange={() => handleCheckboxChange(team)}
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                  </td>
+                )}
+                <td data-label="Team Name">{team.teamFullName}</td>
+                <td data-label="Season">{formatSeasonId(team.seasonId)}</td>
+                <td data-label="Games Played">{team.gamesPlayed}</td>
+                <td data-label="Wins">{team.wins}</td>
+                <td data-label="Losses">{team.losses}</td>
+                <td data-label="Points">{team.points}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     );
 };
 
