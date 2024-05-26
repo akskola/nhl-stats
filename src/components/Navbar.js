@@ -18,10 +18,10 @@ const Navbar = () => {
           </div>
           <ul className="navbar-menu">
             <li>
-              <Link to="/summary">Team Summary</Link>
+              <Link to="/summary">League Summary</Link>
             </li>
             <li>
-              <Link to="/team/1/season/20232024">Stats</Link>
+              <Link to="/team/1/season/20232024">Team Statistics</Link>
             </li>
             {/* Add more links as needed */}
           </ul>

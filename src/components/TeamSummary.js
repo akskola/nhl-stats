@@ -187,7 +187,7 @@ const TeamSummary = () => {
     return (
       <div className="summary-container">
         <div className="header">
-          <h1>NHL Teams Summary</h1>
+          <h1>NHL League Summary</h1>
           <label className="switch">
             <input
               type="checkbox"

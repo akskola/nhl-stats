@@ -96,8 +96,8 @@ const TeamStats = () => {
                     ))}
                 </select>
                 <select value={viewAs} onChange={e => setViewAs(e.target.value)}>
-                    <option value="grid">Grid</option>
-                    <option value="table">Table</option>
+                    <option value="grid">Grid View</option>
+                    <option value="table">Table View</option>
                 </select>
             </div>
             <div className="buttons-container">
@@ -112,11 +112,12 @@ const TeamStats = () => {
                 <>
                     {viewAs === 'grid' ? (
                         <>
-                            <div className='skaters-container'>
-                                <h2 className='player-type'>Skaters</h2>
-                                <ul className="player-list">
-                                    {teamStats.skaters.map((player, index) => (
-                                        <li key={`${player.playerId}-${index}`} className="player-item">
+                        <div className='skaters-container'>
+                            <h2 className='player-type'>Skaters</h2>
+                            <ul className="player-list">
+                                {teamStats.skaters.map((player, index) => (
+                                    <li key={`${player.playerId}-${index}`} className="player-item">
+                                        <a href={`https://www.google.com/search?q=${player.firstName.default}+${player.lastName.default}+ice+hockey`} target="_blank" rel="noopener noreferrer">
                                             <img src={player.headshot} alt={`${player.firstName.default} ${player.lastName.default}`} />
                                             <div className="player-info">
                                                 <p className="player-name">{player.firstName.default} {player.lastName.default}</p>
@@ -127,15 +128,17 @@ const TeamStats = () => {
                                                 <p>Plus/Minus: {player.plusMinus || 'N/A'}</p>
                                                 <p>Penalty Minutes: {player.penaltyMinutes}</p>
                                             </div>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className='goalies-container'>
-                                <h2 className='player-type'>Goalies</h2>
-                                <ul className="player-list">
-                                    {teamStats.goalies.map((player, index) => (
-                                        <li key={`${player.playerId}-${index}`} className="player-item">
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className='goalies-container'>
+                            <h2 className='player-type'>Goalies</h2>
+                            <ul className="player-list">
+                                {teamStats.goalies.map((player, index) => (
+                                    <li key={`${player.playerId}-${index}`} className="player-item">
+                                        <a href={`https://www.google.com/search?q=${player.firstName.default}+${player.lastName.default}+ice+hockey`} target="_blank" rel="noopener noreferrer">
                                             <img src={player.headshot} alt={`${player.firstName.default} ${player.lastName.default}`} />
                                             <div className="player-info">
                                                 <p className="player-name">{player.firstName.default} {player.lastName.default}</p>
@@ -150,11 +153,13 @@ const TeamStats = () => {
                                                 <p>Wins: {player.wins}</p>
                                                 <p>Losses: {player.losses}</p>
                                             </div>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </>
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </>
+                    
                     ) : (
                         <>
                             <div className='skaters-container'>
