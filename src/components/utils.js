@@ -2,7 +2,6 @@ export const formatSeasonId = (seasonId) => {
     const seasonStr = seasonId.toString();
     const startYear = seasonStr.slice(0, 4);
     const endYear = seasonStr.slice(6, 8);
-    console.log(seasonStr, startYear, endYear)
     return `${startYear}-${endYear}`;
 };
 

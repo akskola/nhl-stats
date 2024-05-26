@@ -18,6 +18,7 @@
 
 .header h1 {
     margin-right: 20px;
+    color: #00bfa5;
 }
 
 .switch {
@@ -59,7 +60,7 @@
 }
 
 input:checked + .slider {
-    background-color: #03dac6;
+    background-color: #00bfa5;
 }
 
 input:checked + .slider:before {
@@ -110,10 +111,26 @@ th svg {
 
 .clickable-row {
     cursor: pointer;
+    position: relative;
     transition: background-color 0.3s ease, border-left 0.3s ease;
 }
 
 .clickable-row:hover {
     background-color: #1f1f1f;
     box-shadow: inset 10px 1px 10px #018786;
+}
+
+.clickable-row::after {
+    content: '>';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+    color: #018786;
+}
+
+.clickable-row:hover::after {
+    opacity: 1;
 }

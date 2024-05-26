@@ -101,7 +101,7 @@ const TeamStats = () => {
                 </select>
             </div>
             <div className="buttons-container">
-                <Link to="/">
+                <Link to="/summary">
                     <button className='btn-stats'>Back to Summary</button>
                 </Link>
                 <button className='btn-stats' onClick={() => setShowModal(true)}>Show Schedule</button>
