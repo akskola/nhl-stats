@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# NHL Stats Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the NHL Stats application, your go-to app for exploring and comparing the latest NHL statistics. Dive into league summaries, compare stats, and stay updated with all the latest data.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+1. **League Summary Page**
+   - **Sorting and Comparing Teams**: Easily sort and compare teams using interactive Bar and Radar charts. The charts provide a visual representation of team statistics, making it easier to analyze performance.
+   - **Bar Chart and Radar Chart**: The Bar chart helps in comparing the teams based on various parameters while the Radar chart provides a normalized comparison of the selected teams.
 
-### `npm start`
+2. **Team Statistics Page**
+   - **Multiple Dropdown Selection**: Select the team, season, and game type (Regular Season or Playoffs) from the dropdown menus to view the specific statistics.
+   - **Grid View and Table View**: View team statistics in either a visually appealing Grid view or a detailed Table view. The Grid view displays player cards, and the Table view organizes player statistics in a tabular format.
+   - **Player Search**: Click on a player card to search for the player on Google, providing quick access to more detailed information.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. **Team Schedule**
+   - **Show Team Schedule**: View the schedule and results of a team for a particular year. The schedule displays game dates, times, venues, and scores, providing a comprehensive view of the team's performance throughout the season.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Screenshots
 
-### `npm test`
+### Hero Page
+<img src="screenshots/hero_page.png" alt="hero-page" width="900">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### League Summary Page
+<img src="screenshots/league_summary.png" alt="league-summary-page" width="900">
 
-### `npm run build`
+### League Summary Page (Compare Teams)
+<img src="screenshots/league_summary_compare_teams.png" alt="league-summary-compare-teams" width="900">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Team Statistics Page (Grid View)
+<img src="screenshots/team_stats_grid.png" alt="team-stats-grid-view" width="900">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Team Statistics Page (Table View)
+<img src="screenshots/team_stats_table.png" alt="team-stats-table-view" width="900">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Team Schedule Modal
+<img src="screenshots/team_schedule.png" alt="team-schedule-modal" width="600">
 
-### `npm run eject`
+## Running the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Follow these steps to run the NHL Stats application locally:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Installation
 
-## Learn More
+1. **Clone the repository:**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    ```bash
+    git clone https://github.com/akskola/nhl-stats.git
+    cd nhl-stats
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Install dependencies:**
 
-### Code Splitting
+    ```bash
+    npm install
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. **Start the development server:**
 
-### Analyzing the Bundle Size
+    ```bash
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. **Open the application:**
 
-### Making a Progressive Web App
+    Open your browser and go to [http://localhost:3000](http://localhost:3000) to see the application in action.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Build for Production
 
-### Advanced Configuration
+To build the app for production, run:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm run build
+```
 
-### Deployment
+### License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This application is built for learning purposes. I do not own the rights to the images displayed in the web app.
