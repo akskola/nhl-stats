@@ -116,7 +116,6 @@ const TeamStats = () => {
                             <h2 className='player-type'>Skaters</h2>
                             <ul className="player-list">
                                 {teamStats.skaters.map((player, index) => (
-                                    
                                         <a href={`https://www.google.com/search?q=${player.firstName.default}+${player.lastName.default}+ice+hockey`} target="_blank" rel="noopener noreferrer">
                                             <li key={`${player.playerId}-${index}`} className="player-item">
                                             <img src={player.headshot} alt={`${player.firstName.default} ${player.lastName.default}`} />
@@ -131,7 +130,6 @@ const TeamStats = () => {
                                             </div>
                                             </li>
                                         </a>
-                                    
                                 ))}
                             </ul>
                         </div>
@@ -139,8 +137,8 @@ const TeamStats = () => {
                             <h2 className='player-type'>Goalies</h2>
                             <ul className="player-list">
                                 {teamStats.goalies.map((player, index) => (
-                                    <li key={`${player.playerId}-${index}`} className="player-item">
                                         <a href={`https://www.google.com/search?q=${player.firstName.default}+${player.lastName.default}+ice+hockey`} target="_blank" rel="noopener noreferrer">
+                                            <li key={`${player.playerId}-${index}`} className="player-item">
                                             <img src={player.headshot} alt={`${player.firstName.default} ${player.lastName.default}`} />
                                             <div className="player-info">
                                                 <p className="player-name">{player.firstName.default} {player.lastName.default}</p>
@@ -155,8 +153,8 @@ const TeamStats = () => {
                                                 <p>Wins: {player.wins}</p>
                                                 <p>Losses: {player.losses}</p>
                                             </div>
+                                            </li>
                                         </a>
-                                    </li>
                                 ))}
                             </ul>
                         </div>
