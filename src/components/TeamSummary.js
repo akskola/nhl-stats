@@ -32,19 +32,28 @@ ChartJS.register(
 
 const TeamSummary = () => {
     const [teams, setTeams] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const [selectedTeams, setSelectedTeams] = useState([]);
     const [compareMode, setCompareMode] = useState(false);
     const [sortConfig, setSortConfig] = useState({ key: 'points', direction: 'descending' });
 
     useEffect(() => {
-        axios.get('/api/nhle/stats/rest/en/team/summary')
-            .then(response => {
-                const sortedTeams = response.data.data.sort((a, b) => b.points - a.points);
-                setTeams(sortedTeams);
-                setSelectedTeams(sortedTeams.slice(0, 2)); // Select top 2 teams by default
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }, []);
+      setIsLoading(true);
+      axios
+          .get("/api/nhle/stats/rest/en/team/summary")
+          .then((response) => {
+              const sortedTeams = response.data.data.sort(
+                  (a, b) => b.points - a.points
+              );
+              setTeams(sortedTeams);
+              setSelectedTeams(sortedTeams.slice(0, 2)); // Select top 2 teams by default
+          })
+          .catch((error) => console.error("Error fetching data:", error))
+          .finally(() => {
+              setIsLoading(false);
+          });
+  }, []);
+  
 
     const handleCheckboxChange = (team) => {
         setSelectedTeams((prevSelectedTeams) => {
@@ -236,6 +245,7 @@ const TeamSummary = () => {
             </tr>
           </thead>
           <tbody>
+            {isLoading && <div className='loading-container'>Loading...</div>}
             {sortedTeams.map((team, index) => (
               <tr
                 key={`${team.teamId}-${team.seasonId}-${index}`}

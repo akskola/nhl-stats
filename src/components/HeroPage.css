@@ -34,11 +34,12 @@
 .hero-container h1 {
     font-size: 3rem;
     color: #00bfa5;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
 .hero-container p {
-    font-size: 1.2rem;
+    font-size: 18px;
     margin-bottom: 40px;
     max-width: 600px;
     margin: 0 auto 40px;
@@ -58,11 +59,13 @@
     background-color: #018786;
     color: #fff;
     border: none;
-    padding: 15px 30px;
+    padding: 10px 20px;
     cursor: pointer;
-    font-size: 1rem;
-    border-radius: 5px;
+    font-size: 13px;
+    border-radius: 50px;
     transition: background-color 0.3s, transform 0.3s;
+    /* background: radial-gradient(231.94% 231.94% at 50% 100%, #8a6cff 0, rgba(53, 41, 128, 0) 25.24%), linear-gradient(180deg, rgba(243, 238, 255, 0), rgba(243, 238, 255, .04)), rgba(147, 130, 255, .01);
+    box-shadow: 0 0 0 0 rgba(16, 0, 51, .4), 0 2px 5px 0 rgba(16, 0, 51, .39), 0 8px 8px 0 rgba(16, 0, 51, .34), 0 19px 11px 0 rgba(16, 0, 51, .2), 0 34px 14px 0 rgba(16, 0, 51, .06), 0 53px 15px 0 rgba(16, 0, 51, .01), inset 0 0 12px 0 hsla(0, 0%, 100%, .08), inset 0 -8px 32px 0 #1e0d49; */
 }
 
 .hero-button:hover {

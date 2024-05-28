@@ -9,6 +9,11 @@
     margin: 0 10%;
 } */
 
+.loading-container {
+    width: 100%;
+    text-align: center;
+}
+
 .header {
     display: flex;
     align-items: center;
