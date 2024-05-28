@@ -7,7 +7,7 @@ module.exports = function(app) {
       target: 'https://api.nhle.com',
       changeOrigin: true,
       pathRewrite: {
-        '^/api/nhle': '', // remove base path
+        '^/api/nhle': '',
       },
     })
   );
@@ -17,7 +17,7 @@ module.exports = function(app) {
       target: 'https://api-web.nhle.com',
       changeOrigin: true,
       pathRewrite: {
-        '^/api-web/nhle': '', // remove base path
+        '^/api-web/nhle': '',
       },
     })
   );
